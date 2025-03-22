@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import Login from "./Login";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,6 +16,19 @@ function App() {
       setUser(true);
     }
   }, []);
+
+  const App = () => {
+    const token = localStorage.getItem("token");
+  
+    return (
+      <Router>
+        <Routes>
+          <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
+    );
+  };
 
   return (
     <>
@@ -44,4 +60,3 @@ function App() {
 }
 
 export default App;
-
