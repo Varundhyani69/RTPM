@@ -1,4 +1,6 @@
 {
+  "start": "node server.js",
+  "build": "echo 'No build step required' ",
   "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
