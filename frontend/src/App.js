@@ -4,19 +4,6 @@ import "./App.css";
 
 const socket = io("http://localhost:8080");
 
-function App() {
-  const [processes, setProcesses] = useState([]);
-  const [apps, setApps] = useState([]);
-  const [view, setView] = useState("apps");
-
-  useEffect(() => {
-    socket.on("processData", (data) => {
-      setApps(data.apps);
-      setProcesses(data.allProcesses);
-    });
-
-    return () => socket.off("processData");
-  }, []);
 
   return (
     <div className="dashboard">
