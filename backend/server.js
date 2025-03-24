@@ -14,6 +14,7 @@ const io = new Server(server, {
   }
 });
 
+//code
 app.use(cors());
 
 const getMemoryUsageWMIC = (callback) => {
@@ -43,6 +44,7 @@ const getMemoryUsageWMIC = (callback) => {
     callback(processes);
   });
 };
+
 
 io.on("connection", (socket) => {
   console.log("Client connected");
